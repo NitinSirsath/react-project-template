@@ -27,12 +27,12 @@ const minimalColorsDark = {
 
 // Shared typography settings
 const typography = {
-  fontFamily: "'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif",
-  body1: { fontSize: "1rem", fontWeight: 400 },
-  body2: { fontSize: "0.875rem", fontWeight: 400 },
-  h1: { fontSize: "2.25rem", fontWeight: 700 },
-  h2: { fontSize: "2rem", fontWeight: 600 },
-  h3: { fontSize: "1.75rem", fontWeight: 500 },
+  fontFamily: "'IBM Plex Mono', monospace", // Clean and modern font
+  body1: { fontSize: "1rem", fontWeight: 400, lineHeight: 1.6 },
+  body2: { fontSize: "0.875rem", fontWeight: 400, lineHeight: 1.6 },
+  h1: { fontWeight: 700, fontSize: "2.5rem" },
+  h2: { fontWeight: 600, fontSize: "2rem" },
+  h3: { fontWeight: 500, fontSize: "1.75rem" },
 };
 
 const modernComponentOverrides = (
@@ -44,6 +44,7 @@ const modernComponentOverrides = (
         textTransform: "none", // Keep text as is (no uppercase)
         borderRadius: 5,
         fontWeight: "normal",
+        padding: "8px 16px",
         transition: "all 0.3s ease",
         boxShadow: "none",
         "&:hover": {
@@ -73,6 +74,18 @@ const modernComponentOverrides = (
         "& .MuiInputLabel-root.Mui-focused": {
           color: colors.primary,
         },
+        "& .MuiOutlinedInput-root": {
+          borderRadius: 5,
+          "& fieldset": {
+            borderColor: colors.neutral,
+          },
+          "&:hover fieldset": {
+            borderColor: colors.primary,
+          },
+          "&.Mui-focused fieldset": {
+            borderColor: colors.primary,
+          },
+        },
       },
     },
   },
@@ -81,6 +94,10 @@ const modernComponentOverrides = (
       root: {
         margin: "20px 0px",
         borderRadius: 5,
+      },
+      paper: {
+        borderRadius: 5,
+        boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
       },
     },
   },
@@ -96,6 +113,26 @@ const modernComponentOverrides = (
       paper: {
         borderRadius: 12,
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
+      },
+    },
+  },
+  MuiRadio: {
+    styleOverrides: {
+      root: {
+        color: colors.neutral,
+        "&.Mui-checked": {
+          color: colors.primary,
+        },
+      },
+    },
+  },
+  MuiSelect: {
+    styleOverrides: {
+      select: {
+        borderRadius: 5,
+        "&:focus": {
+          borderRadius: 5,
+        },
       },
     },
   },
