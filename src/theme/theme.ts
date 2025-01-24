@@ -1,28 +1,28 @@
 import { createTheme } from "@mui/material/styles";
 import { Components, Theme } from "@mui/material/styles";
 
-// Light mode color conventions
-const lightColors = {
-  primary: "#0F172A", // Deep navy for modern contrast
-  secondary: "#64748B", // Subtle gray-blue
-  text: "#1E293B", // Strong dark gray
-  background: "#F8FAFC", // Soft off-white
-  surface: "#FFFFFF", // Pure white
-  error: "#EF4444", // Bold red
-  success: "#22C55E", // Bright green
-  neutral: "#E2E8F0", // Soft gray for borders
+// Minimal color palette for light mode
+const minimalColorsLight = {
+  primary: "#333333", // Dark Gray
+  secondary: "#757575", // Medium Gray
+  text: "#212121", // Almost Black
+  background: "#ffffff", // White
+  surface: "#f9f9f9", // Very Light Gray
+  error: "#e53935", // Soft Red
+  success: "#43a047", // Soft Green
+  neutral: "#9e9e9e", // Light Gray
 };
 
-// Dark mode color conventions
-const darkColors = {
-  primary: "#38BDF8", // Vivid cyan-blue
-  secondary: "#94A3B8", // Muted gray-blue
-  text: "#F1F5F9", // Light gray
-  background: "#0F172A", // Deep navy
-  surface: "#1E293B", // Dark slate gray
-  error: "#F87171", // Warm red
-  success: "#4ADE80", // Bright green
-  neutral: "#334155", // Darker gray for borders
+// Minimal color palette for dark mode
+const minimalColorsDark = {
+  primary: "#ffffff", // White
+  secondary: "#bdbdbd", // Light Gray
+  text: "#e0e0e0", // Light Text
+  background: "#121212", // Dark Background
+  surface: "#1d1d1d", // Slightly Lighter Surface
+  error: "#cf6679", // Soft Red for Dark Mode
+  success: "#66bb6a", // Soft Green for Dark Mode
+  neutral: "#757575", // Medium Gray
 };
 
 // Shared typography settings
@@ -36,22 +36,20 @@ const typography = {
 };
 
 const modernComponentOverrides = (
-  colors: typeof lightColors | typeof darkColors
+  colors: typeof minimalColorsLight | typeof minimalColorsDark
 ): Components<Theme> => ({
   MuiButton: {
     styleOverrides: {
       root: {
-        textTransform: "none",
-        borderRadius: 12,
-        fontWeight: 600,
-        fontSize: "0.875rem",
-        padding: "8px 16px",
+        textTransform: "none", // Keep text as is (no uppercase)
+        borderRadius: 5,
+        fontWeight: "normal",
         transition: "all 0.3s ease",
         boxShadow: "none",
         "&:hover": {
           backgroundColor: colors.primary,
-          color: "#ffffff",
-          boxShadow: `0px 4px 12px rgba(0, 0, 0, 0.1)`,
+          color: colors.background,
+          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
         },
       },
     },
@@ -59,8 +57,8 @@ const modernComponentOverrides = (
   MuiPaper: {
     styleOverrides: {
       root: {
-        borderRadius: 16,
-        boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.05)",
+        borderRadius: 12,
+        boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.1)",
       },
     },
   },
@@ -68,17 +66,13 @@ const modernComponentOverrides = (
     styleOverrides: {
       root: {
         margin: "12px 0px",
-        borderRadius: 8,
-      },
-    },
-  },
-  MuiAppBar: {
-    styleOverrides: {
-      root: {
-        backgroundColor: colors.surface,
-        color: colors.text,
-        boxShadow: "none",
-        borderBottom: `1px solid ${colors.neutral}`,
+        borderColor: colors.neutral, // Subtle border
+        "& .MuiInputLabel-root": {
+          color: colors.secondary,
+        },
+        "& .MuiInputLabel-root.Mui-focused": {
+          color: colors.primary,
+        },
       },
     },
   },
@@ -86,8 +80,7 @@ const modernComponentOverrides = (
     styleOverrides: {
       root: {
         margin: "20px 0px",
-        borderRadius: 8,
-        boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.05)",
+        borderRadius: 5,
       },
     },
   },
@@ -98,62 +91,48 @@ const modernComponentOverrides = (
       },
     },
   },
+  MuiDialog: {
+    styleOverrides: {
+      paper: {
+        borderRadius: 12,
+        boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
+      },
+    },
+  },
 });
 
-// Light mode theme
+// Light mode theme (minimal and typographic focus)
 export const lightTheme = createTheme({
   palette: {
     mode: "light",
-    primary: {
-      main: lightColors.primary,
-    },
-    secondary: {
-      main: lightColors.secondary,
-    },
-    text: {
-      primary: lightColors.text,
-      secondary: lightColors.neutral,
-    },
+    primary: { main: minimalColorsLight.primary },
+    secondary: { main: minimalColorsLight.secondary },
+    text: { primary: minimalColorsLight.text },
     background: {
-      default: lightColors.background,
-      paper: lightColors.surface,
+      default: minimalColorsLight.background,
+      paper: minimalColorsLight.surface,
     },
-    error: {
-      main: lightColors.error,
-    },
-    success: {
-      main: lightColors.success,
-    },
+    error: { main: minimalColorsLight.error },
+    success: { main: minimalColorsLight.success },
   },
   typography,
-  components: modernComponentOverrides(lightColors),
+  components: modernComponentOverrides(minimalColorsLight),
 });
 
-// Dark mode theme
+// Dark mode theme (minimal and typographic focus)
 export const darkTheme = createTheme({
   palette: {
     mode: "dark",
-    primary: {
-      main: darkColors.primary,
-    },
-    secondary: {
-      main: darkColors.secondary,
-    },
-    text: {
-      primary: darkColors.text,
-      secondary: darkColors.neutral,
-    },
+    primary: { main: minimalColorsDark.primary },
+    secondary: { main: minimalColorsDark.secondary },
+    text: { primary: minimalColorsDark.text },
     background: {
-      default: darkColors.background,
-      paper: darkColors.surface,
+      default: minimalColorsDark.background,
+      paper: minimalColorsDark.surface,
     },
-    error: {
-      main: darkColors.error,
-    },
-    success: {
-      main: darkColors.success,
-    },
+    error: { main: minimalColorsDark.error },
+    success: { main: minimalColorsDark.success },
   },
   typography,
-  components: modernComponentOverrides(darkColors),
+  components: modernComponentOverrides(minimalColorsDark),
 });
