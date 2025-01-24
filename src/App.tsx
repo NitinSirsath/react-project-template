@@ -4,14 +4,15 @@
 import "./App.css";
 import { ThemeProvider } from "@emotion/react";
 import { darkTheme, lightTheme } from "./theme/theme";
-import { Button, Paper, Stack, TextField } from "@mui/material";
+import { Paper } from "@mui/material";
+import AppRouter from "./routes/AppRoutes";
 
 function App() {
   const theme = true;
   return (
     <ThemeProvider theme={!theme ? darkTheme : lightTheme}>
-      <Paper sx={{ height: "100vh", borderRadius: 0, padding: "10px" }}>
-        <Stack direction={"row"} gap={2}>
+      <Paper sx={{ height: "100vh", borderRadius: 0 }}>
+        {/* <Stack direction={"row"} gap={2}>
           <Button variant="contained" color="primary">
             contained
           </Button>
@@ -22,7 +23,8 @@ function App() {
           <TextField label="Default title 1" variant="filled" size="small" />
           <TextField label="Default title 2" variant="outlined" size="small" />
           <TextField label="Default title 3" variant="standard" size="small" />
-        </Stack>
+        </Stack> */}
+        <AppRouter />
       </Paper>
     </ThemeProvider>
   );
