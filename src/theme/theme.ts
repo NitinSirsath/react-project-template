@@ -47,11 +47,11 @@ const modernComponentOverrides = (
         padding: "8px 16px",
         transition: "all 0.3s ease",
         boxShadow: "none",
-        "&:hover": {
-          backgroundColor: colors.primary,
-          color: colors.background,
-          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-        },
+        // "&:hover": {
+        //   backgroundColor: colors.primary,
+        //   color: colors.background,
+        //   boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+        // },
       },
     },
   },
