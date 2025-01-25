@@ -17,7 +17,7 @@ import {
   ArrowForwardIos,
 } from "@mui/icons-material";
 import InputAdornment from "@mui/material/InputAdornment";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 import useRegisterPage from "./hooks/useRegisterPage";
 import styles from "../LoginPage/loginPage.module.css";
 import companyLogo from "../../assets/react.svg";
