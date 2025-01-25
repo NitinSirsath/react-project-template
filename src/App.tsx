@@ -10,7 +10,7 @@ import AppRouter from "./routes/AppRoutes";
 function App() {
   const theme = true;
   return (
-    <ThemeProvider theme={!theme ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme ? darkTheme : lightTheme}>
       <Paper sx={{ height: "100vh", borderRadius: 0 }}>
         {/* <Stack direction={"row"} gap={2}>
           <Button variant="contained" color="primary">
@@ -19,11 +19,11 @@ function App() {
           <Button variant="outlined">outlined</Button>
           <Button variant="text">text</Button>
         </Stack>
-        <Stack direction={"row"} gap={2}>
+        <Stac direction={"row"} gap={2}>
           <TextField label="Default title 1" variant="filled" size="small" />
           <TextField label="Default title 2" variant="outlined" size="small" />
           <TextField label="Default title 3" variant="standard" size="small" />
-        </Stack> */}
+        </Stac'k> */}
         <AppRouter />
       </Paper>
     </ThemeProvider>

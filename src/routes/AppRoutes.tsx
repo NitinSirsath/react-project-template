@@ -13,6 +13,7 @@ import AppLayout from "../components/layout/AppLayout";
 import LoginPage from "./LoginPage/Index";
 import HomePage from "./HomePage/Index";
 import NotFoundPage from "./404Page/NotFoundPage";
+import RegisterPage from "./RegisterPage/Index";
 
 const AppRouter = () => {
   const { isLoggedIn } = useAuthStore();
@@ -38,14 +39,14 @@ const AppRouter = () => {
             </PublicRoutes>
           }
         />
-        {/* <Route
+        <Route
           path="/register"
           element={
             <PublicRoutes>
-              <RegisterInterface />
+              <RegisterPage />
             </PublicRoutes>
           }
-        /> */}
+        />
         <Route
           path="/"
           element={
