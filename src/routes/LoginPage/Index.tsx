@@ -9,6 +9,7 @@ import {
   Link,
   Paper,
   Button,
+  Typography,
 } from "@mui/material";
 import {
   Visibility,
@@ -16,10 +17,10 @@ import {
   ArrowForwardIos,
 } from "@mui/icons-material";
 import InputAdornment from "@mui/material/InputAdornment";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 import styles from "./loginPage.module.css";
 import companyLogo from "../../assets/react.svg";
-import loginBG from "../../assets/react.svg";
+import loginBG from "../../assets/loginBG.svg";
 import useLoginPage from "./hooks/useLoginPage";
 import { useNavigate } from "react-router-dom";
 
@@ -83,14 +84,11 @@ const LoginPage: React.FC = () => {
             }}
           >
             <Container component="main" maxWidth="xs">
-              <div
-                style={{
-                  cursor: "pointer",
-                  marginBottom: "10px",
-                  textAlign: "center",
-                }}
-              >
-                <img alt="Company Logo" src={companyLogo} height={30} />
+              <div style={{ display: "flex", gap: "10px", alignItems: "end" }}>
+                <img alt="Company Logo" src={companyLogo} height={30} />{" "}
+                <Typography variant="body1" color="textPrimary">
+                  React Template
+                </Typography>
               </div>
               {loginError && (
                 <h5 style={{ color: lightTheme.palette.error.main }}>

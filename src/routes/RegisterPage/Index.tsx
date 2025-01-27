@@ -9,6 +9,7 @@ import {
   Link,
   Paper,
   Button,
+  Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import {
@@ -21,7 +22,7 @@ import { createTheme } from "@mui/material/styles";
 import useRegisterPage from "./hooks/useRegisterPage";
 import styles from "../LoginPage/loginPage.module.css";
 import companyLogo from "../../assets/react.svg";
-import registerBG from "../../assets/react.svg";
+import registerBG from "../../assets/loginBG.svg";
 
 // Light theme configuration
 const lightTheme = createTheme({
@@ -74,14 +75,11 @@ const RegisterPage: React.FC = () => {
             }}
           >
             <Container component="main" maxWidth="xs">
-              <div
-                style={{
-                  cursor: "pointer",
-                  marginBottom: "10px",
-                  textAlign: "center",
-                }}
-              >
-                <img alt="Company Logo" src={companyLogo} height={30} />
+              <div style={{ display: "flex", gap: "10px", alignItems: "end" }}>
+                <img alt="Company Logo" src={companyLogo} height={30} />{" "}
+                <Typography variant="body1" color="textPrimary">
+                  React Template
+                </Typography>
               </div>
               {registerError && (
                 <h5 style={{ color: lightTheme.palette.error.main }}>
