@@ -78,7 +78,7 @@ const RegisterPage: React.FC = () => {
               <div style={{ display: "flex", gap: "10px", alignItems: "end" }}>
                 <img alt="Company Logo" src={companyLogo} height={30} />{" "}
                 <Typography variant="body1" color="textPrimary">
-                  React Template
+                  React Project Template
                 </Typography>
               </div>
               {registerError && (
